@@ -1,0 +1,7 @@
+<h1>Songs</h1>
+
+<ul>
+  <li ng-repeat="song in ctrl.songs">
+    <a ui-sref="songsShow({ songId: song._id })">{{ song._id }} : {{ song.title }} - {{ song.artist }}</a>
+  </li>
+</ul>

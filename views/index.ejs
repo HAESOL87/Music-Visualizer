@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <base href="/">
+  </head>
+  <body ng-app='visualizerApp'>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div style="border: solid 2px; padding: 5px;">
+      <h2>Nav Bar</h2>
+      <a ui-sref="home">Home</a>
+      <a ui-sref="visualizer">Visualizer</a>
+      <a ui-sref="song">Song</a>
+      <a ui-sref="about">About</a>
+    </div>
+
+    <div ui-view=""></div>
+
+    <script type="text/javascript" src="angular/angular.min.js" defer></script>
+    <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
+    <script type="text/javascript" src="javascripts/client.js" defer></script>
+
+  </body>
+</html>
+
