@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <base href="/">
@@ -17,11 +19,16 @@
       <a ui-sref="about">About</a>
     </div>
 
+    <audio id="audioElement" src="audio/Run.mp3"></audio>
+
     <div ui-view=""></div>
 
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
+    <script type="text/javascript" src="javascripts/visualizer_bar.js" defer></script>
 
   </body>
 </html>

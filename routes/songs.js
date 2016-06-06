@@ -5,9 +5,8 @@ var Song = require('../models/song');
 
 function seedSongs(){
   var songs = [
-    {title : "Inception",      artist : "1234"},
-    {title : "Animal Kingdom", artist : "5678"},
-    {title : "The matrix",     artist : "9876"}
+    {title : "Run",      artist : "Alison Wonderland"},
+    {title : "Animal Kingdom", artist : "5678"}
   ];
 
   Song.find({}).remove()
@@ -36,9 +35,9 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next){
   Song.findById(req.params.id)
   .then(function(song) {
-    if (!song) {
-      res.status(404).json ( { error: 'Not found' } );
-    }
+    // if (!song) {
+    //   res.status(404).json ( { error: 'Not found' } );
+    // }
     res.json(song);
   })
   .catch(function(err){
