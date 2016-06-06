@@ -39,6 +39,14 @@ $(document).ready(function () {
      // Copy frequency data to frequencyData array.
      analyser.getByteFrequencyData(frequencyData);
 
+  //   var colours = ["#6363FF", "#6373FF", "#63A3FF", "#63E3FF", "#63FFFB", "#63FFCB",
+  //              "#63FF9B", "#63FF6B", "#7BFF63", "#BBFF63", "#DBFF63", "#FBFF63",
+  //              "#FFD363", "#FFB363", "#FF8363", "#FF7363", "#FF6364"];
+
+  // var heatmapColour = d3.scale.linear()
+  // .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+  // .range(colours);
+
      // Update d3 chart with new data.
      svg.selectAll('rect')
         .data(frequencyData)
@@ -50,8 +58,31 @@ $(document).ready(function () {
         })
         .attr('fill', function(d) {
            return 'rgb(0, 0, ' + d + ')';
-        });
+        //    return 'rgb(0,' + d + ', 0)';
+        })
   }
+
+    //     var colors = d3.scale.linear()
+  // .domain([0, frequencydata.length*.33, frequencydata.length*.66, frequencydata.length])
+  // .range(['#d6e9c6', '#bce8f1', '#faebcc', '#ebccd1'])
+
+       // .style({'fill': function(data,i){return colors(i);}, 'stroke': '#31708f', 'stroke-width': '5'})
+
+  // var colours = ["#6363FF", "#6373FF", "#63A3FF", "#63E3FF", "#63FFFB", "#63FFCB",
+  //              "#63FF9B", "#63FF6B", "#7BFF63", "#BBFF63", "#DBFF63", "#FBFF63",
+  //              "#FFD363", "#FFB363", "#FF8363", "#FF7363", "#FF6364"];
+
+  // var heatmapColour = d3.scale.linear()
+  // .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
+  // .range(colours);
+
+  // // dynamic bit...
+  // var c = d3.scale.linear().domain(d3.extent(frequencydata)).range([0,1]);
+
+       // .style("fill", function(d) {
+     //    return heatmapColour(d.value);
+     // })
+
 
   // Run the loop
   renderChart();
