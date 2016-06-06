@@ -12,15 +12,20 @@ $(document).ready(function () {
   //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
   var frequencyData = new Uint8Array(200);
 
+  //Set svg container size
   var svgHeight = '300';
   var svgWidth = '1000';
-  var barPadding = '1';
+  var barPadding = '2';
 
   function createSvg(parent, height, width) {
     return d3.select(parent).append('svg').attr('height', height).attr('width', width);
   }
 
+  //Create svg container
   var svg = createSvg('body', svgHeight, svgWidth);
+
+     //Create color gradient
+  var colorScaleRainbow = d3.scale.category20()
 
   // Create our initial D3 chart.
   svg.selectAll('rect')
@@ -30,7 +35,8 @@ $(document).ready(function () {
      .attr('x', function (d, i) {
         return i * (svgWidth / frequencyData.length);
      })
-     .attr('width', svgWidth / frequencyData.length - barPadding);
+     .attr('width', svgWidth / frequencyData.length - barPadding)
+
 
   // Continuously loop and update chart with frequency data.
   function renderChart() {
@@ -38,14 +44,6 @@ $(document).ready(function () {
 
      // Copy frequency data to frequencyData array.
      analyser.getByteFrequencyData(frequencyData);
-
-  //   var colours = ["#6363FF", "#6373FF", "#63A3FF", "#63E3FF", "#63FFFB", "#63FFCB",
-  //              "#63FF9B", "#63FF6B", "#7BFF63", "#BBFF63", "#DBFF63", "#FBFF63",
-  //              "#FFD363", "#FFB363", "#FF8363", "#FF7363", "#FF6364"];
-
-  // var heatmapColour = d3.scale.linear()
-  // .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
-  // .range(colours);
 
      // Update d3 chart with new data.
      svg.selectAll('rect')
@@ -56,32 +54,10 @@ $(document).ready(function () {
         .attr('height', function(d) {
            return d;
         })
-        .attr('fill', function(d) {
-           return 'rgb(0, 0, ' + d + ')';
-        //    return 'rgb(0,' + d + ', 0)';
+        .attr('fill', function(d, i) {
+           return colorScaleRainbow(i);
         })
   }
-
-    //     var colors = d3.scale.linear()
-  // .domain([0, frequencydata.length*.33, frequencydata.length*.66, frequencydata.length])
-  // .range(['#d6e9c6', '#bce8f1', '#faebcc', '#ebccd1'])
-
-       // .style({'fill': function(data,i){return colors(i);}, 'stroke': '#31708f', 'stroke-width': '5'})
-
-  // var colours = ["#6363FF", "#6373FF", "#63A3FF", "#63E3FF", "#63FFFB", "#63FFCB",
-  //              "#63FF9B", "#63FF6B", "#7BFF63", "#BBFF63", "#DBFF63", "#FBFF63",
-  //              "#FFD363", "#FFB363", "#FF8363", "#FF7363", "#FF6364"];
-
-  // var heatmapColour = d3.scale.linear()
-  // .domain(d3.range(0, 1, 1.0 / (colours.length - 1)))
-  // .range(colours);
-
-  // // dynamic bit...
-  // var c = d3.scale.linear().domain(d3.extent(frequencydata)).range([0,1]);
-
-       // .style("fill", function(d) {
-     //    return heatmapColour(d.value);
-     // })
 
 
   // Run the loop
