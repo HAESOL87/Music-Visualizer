@@ -22,7 +22,7 @@ $(document).ready(function () {
   }
 
   //Create svg container
-  var svg = createSvg('body', svgHeight, svgWidth);
+  var svg = createSvg('#visualizer', svgHeight, svgWidth);
 
      //Create color gradient
   var colorScaleRainbow = d3.scale.category20()

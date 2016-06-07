@@ -22,20 +22,20 @@ angular.module('visualizerApp')
     .state('song', {
       url: "/songs",
       templateUrl: "views/songs.html",
-      controller: "visualizerCtrl",
+      controller: "songsCtrl",
       controllerAs: "ctrl"
     })
     .state('songsShow', {
       url: "/songs/:songId",
       templateUrl: "views/songs-show.html",
-      controller: "visualizerShowCtrl",
+      controller: "songsShowCtrl",
       controllerAs: "ctrl"
     });
 });
 
 angular.module('visualizerApp')
-.controller('visualizerCtrl', function($http) {
-  console.log('visualizerCtrl is alive!');
+.controller('songsCtrl', function($http) {
+  console.log('songsCtrl is alive!');
 
   var ctrl = this;
   ctrl.songs = [];
@@ -48,11 +48,17 @@ angular.module('visualizerApp')
   };
 
   ctrl.getSongs();
+
+  ctrl.changeSong = function($event) {
+    console.log("Hello");
+    console.log($event.currentTarget.id);
+    $('#audioElement').attr("src", "audio/" + $event.currentTarget.id);
+  };
 });
 
 angular.module('visualizerApp')
-.controller('visualizerShowCtrl', function($http, $stateParams) {
-  console.log('visualizerShowCtrl is alive!');
+.controller('songsShowCtrl', function($http, $stateParams) {
+  console.log('songsShowCtrl is alive!');
 
   var ctrl = this;
   ctrl.song = {};

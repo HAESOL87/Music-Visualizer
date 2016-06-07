@@ -5,9 +5,9 @@ var Song = require('../models/song');
 
 function seedSongs(){
   var songs = [
-    {title : "Run",      artist : "Alison Wonderland"},
-    {title : "Above The Middle", artist : "Odesza"},
-    {title : "Go With It", artist : "TokiMonsta"}
+    {title : "Run",              artist : "Alison Wonderland", filename : "Run - Alison Wonderland.mp3"},
+    {title : "Above The Middle", artist : "Odesza", filename : "Above The Middle - Odesza.mp3"},
+    {title : "Go With It",       artist : "TokiMonsta", filename : "Go With It - TOKiMONSTA.mp3"}
   ];
 
   Song.find({}).remove()
