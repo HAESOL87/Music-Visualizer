@@ -10,12 +10,17 @@ $(document).ready(function () {
   audioSrc.connect(audioCtx.destination);
 
   //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-  var frequencyData = new Uint8Array(200);
+  var frequencyData = new Uint8Array(50);
 
   //Set svg container size
-  var svgHeight = '300';
-  var svgWidth = '1000';
+  var svgHeight = '350';
+  var svgWidth = '800';
   var barPadding = '2';
+
+  //  //Set svg container size
+  // var svgHeight = $(document).height();
+  // var svgWidth = $(document).width();
+  // var barPadding = '2';
 
   function createSvg(parent, height, width) {
     return d3.select(parent).append('svg').attr('height', height).attr('width', width);
@@ -24,7 +29,7 @@ $(document).ready(function () {
   //Create svg container
   var svg = createSvg('#visualizer', svgHeight, svgWidth);
 
-     //Create color gradient
+  //Create color gradient
   var colorScaleRainbow = d3.scale.category20()
 
   // Create our initial D3 chart.
@@ -57,7 +62,12 @@ $(document).ready(function () {
         .attr('fill', function(d, i) {
            return colorScaleRainbow(i);
         })
+
+        console.log(frequencyData);
+
   }
+
+
 
 
   // Run the loop
