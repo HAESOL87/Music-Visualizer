@@ -5,6 +5,8 @@ $(document).ready(function () {
   var audioSrc = audioCtx.createMediaElementSource(audioElement);
   var analyser = audioCtx.createAnalyser();
 
+  var toggle;
+
   // Bind our analyser to the media element source.
   audioSrc.connect(analyser);
   audioSrc.connect(audioCtx.destination);
@@ -64,9 +66,14 @@ $(document).ready(function () {
     // just for blocks viewer size
     d3.select(self.frameElement).style('height', '700px');
 
-$('#start').on("click", function(){
-  console.log("Hello@");
-  renderChart();
-});
+      //Start set-up
+  $('#play').on("click", function(){
+    toggle = requestAnimationFrame(renderChart);
+  });
+
+  $('#pause').on("click", function(){
+    cancelAnimationFrame(toggle);
+  });
+
 
 });

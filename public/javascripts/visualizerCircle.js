@@ -5,6 +5,8 @@ $(document).ready(function () {
   var audioSrc = audioCtx.createMediaElementSource(audioElement);
   var analyser = audioCtx.createAnalyser();
 
+  var toggle;
+
   // Bind our analyser to the media element source.
   audioSrc.connect(analyser);
   audioSrc.connect(audioCtx.destination);
@@ -120,6 +122,7 @@ barWrapper.selectAll(".tempBar")
 
 
   function renderChart() {
+
      requestAnimationFrame(renderChart);
 
      // Copy frequency data to frequencyData array.
@@ -136,39 +139,16 @@ barWrapper.selectAll(".tempBar")
         // .attr("x", 0.75)
         .attr("y", function(d,i) {return barScale(-60); })
         .style("fill", function(d,i) { return colorScale(i); })
-
-
-  console.log(frequencyData);
-
-  // //       //console.log("Enter here?");
-  // //       // .attr('y', function(d) {
-  // //       //    return svgHeight - d;
-  // //       // })
-  // //       // .attr('height', function(d) {
-  // //       //    return d;
-  // //       // })
-  // //       // .attr('fill', function(d, i) {
-  // //       //    return colorScaleRainbow(i);
-  // //       // })
-
-  // //       // console.log(frequencyData);
-
   }
 
-  // Run the loop
-  renderChart();
+  //Start set-up
+  $('#play').on("click", function(){
+    toggle = requestAnimationFrame(renderChart);
+  });
 
-
-
-
-
-
-
-
-
-
-
-
+  $('#pause').on("click", function(){
+    cancelAnimationFrame(toggle);
+  });
 
 
 });
