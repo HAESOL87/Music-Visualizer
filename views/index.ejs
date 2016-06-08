@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
     <base href="/">
     <style>
     body {
@@ -82,14 +84,20 @@
   </style>
   </head>
   <body ng-app='visualizerApp'>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
     <div style="border: solid 2px; padding: 5px;">
       <a ui-sref="home">Home</a>
-      <a ui-sref="visualizer">Visualizer</a>
       <a ui-sref="song">Songs</a>
       <a ui-sref="about">About</a>
+    </div>
+
+    <h1><%= title %></h1>
+
+    <div>
+      <button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
+      <button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
+      <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
+      <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
+      <button id="start">Start</button>
     </div>
 
     <audio id="audioElement" src="audio/Go With It - TOKiMONSTA.mp3">Hello</audio>
@@ -98,13 +106,16 @@
 
     <div id="visualizer"></div>
 
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
-    <!-- <script type="text/javascript" src="javascripts/visualizer_bar.js" defer></script> -->
-    <script type="text/javascript" src="javascripts/visualizerCircle.js" defer></script>
+    <script type="text/javascript" src="javascripts/visualizerBar.js" defer></script>
+<!--     <script type="text/javascript" src="javascripts/visualizerCircle.js" defer></script>
+ -->    <!-- <script type="text/javascript" src="javascripts/visualizerHexagon.js" defer></script>  -->
+
 
 
   </body>

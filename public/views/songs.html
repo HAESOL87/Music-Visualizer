@@ -2,8 +2,6 @@
 
 <ul>
   <li ng-repeat="song in ctrl.songs">
-<!--     <a ui-sref="songsShow({ songId: song._id })">{{ song.title }} - {{ song.artist }}</a> -->
     <a ng-click="ctrl.changeSong($event)" id="{{ song.filename }}">{{ song.title }} - {{ song.artist }}</a>
-<!-- <a>{{ song.title }} - {{ song.artist }}</a> -->
   </li>
 </ul>

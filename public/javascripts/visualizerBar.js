@@ -63,14 +63,12 @@ $(document).ready(function () {
            return colorScaleRainbow(i);
         })
 
-        console.log(frequencyData);
-
+        console.log("Yo!");
   }
 
-
-
-
-  // Run the loop
+$('#start').on("click", function(){
+  console.log("Hello@");
   renderChart();
+});
 
 });

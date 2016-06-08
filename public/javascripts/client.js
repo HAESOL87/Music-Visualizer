@@ -15,10 +15,10 @@ angular.module('visualizerApp')
       url: "/about",
       templateUrl: "views/about.html"
     })
-    .state('visualizer', {
-      url: "/visualizer",
-      templateUrl: "views/visualizer.html"
-    })
+    // .state('visualizer', {
+    //   url: "/visualizer",
+    //   templateUrl: "views/visualizer.html",
+    // })
     .state('song', {
       url: "/songs",
       templateUrl: "views/songs.html",
