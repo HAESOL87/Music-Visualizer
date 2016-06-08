@@ -32,7 +32,7 @@ $(document).ready(function () {
   var svg = createSvg('#visualizer', svgHeight, svgWidth);
 
   //Create color gradient
-  var colorScaleRainbow = d3.scale.category20()
+  var colorScaleRainbow = d3.scale.category20();
 
   // Create our initial D3 chart.
   svg.selectAll('rect')
