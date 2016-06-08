@@ -9,8 +9,10 @@ $(document).ready(function () {
   audioSrc.connect(analyser);
   audioSrc.connect(audioCtx.destination);
 
-  //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+  //var frequency = new Uint8Array(analyser.frequencyBinCount);
   var frequencyData = new Uint8Array(50);
+
+  var initialData = [88, 64, 134, 143, 123, 109, 101, 63, 62, 98, 116, 105, 106, 134, 151, 145, 122, 113, 113, 118, 94, 84, 33, 89, 116, 120, 116, 120, 125, 121, 124, 136, 155, 183, 194, 185, 158, 132, 105, 107, 111, 85, 72, 91, 73, 90, 71, 62, 86, 94];
 
   //Set svg container size
   var svgHeight = '350';
@@ -63,7 +65,7 @@ $(document).ready(function () {
            return colorScaleRainbow(i);
         })
 
-        console.log("Yo!");
+        console.log(frequencyData);
   }
 
 $('#start').on("click", function(){

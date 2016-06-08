@@ -17,12 +17,6 @@ var somData = [
 ];
 
 
-
-
-
-
-
-
 var MapColumns = 30,
   MapRows = 20;
 
