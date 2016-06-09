@@ -97,13 +97,16 @@
       <span> | </span>
       <button id="play" onclick="document.getElementById('audioElement').play()">Play the Audio</button>
       <button id="pause" onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
-      <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
-      <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
+      <button id="volumeUp"onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
+      <button id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
       <span> | </span>
       <button id="bar">Bar</button>
       <button id="circle">Circle</button>
       <button id="radial">Radial</button>
       <button id="hexagon">Hexagon</button>
+      <span> | </span>
+      <button id="color">Color</button>
+      <button id="black">B&W</button>
     </div>
 
     <audio id="audioElement" src="audio/Post Malone - White Iverson (Malaa Remix).mp3"></audio>
@@ -117,7 +120,6 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
-    <!-- <script type="text/javascript" src="javascripts/app2.js"></script> -->
     <script type="text/javascript" src="javascripts/jquery.js" defer></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
 
