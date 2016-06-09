@@ -53,7 +53,7 @@ angular.module('visualizerApp')
     console.log("Hello");
     console.log($event.currentTarget.id);
     $('#audioElement').attr("src", "audio/" + $event.currentTarget.id);
-    $('#songLoaded').text($event.currentTarget.id);
+    $('#songLoaded').text("  " + $event.currentTarget.id);
   };
 });
 

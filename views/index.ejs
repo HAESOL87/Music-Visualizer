@@ -14,7 +14,10 @@
         font-family: 'Open Sans', sans-serif;
         font-weight: 400;
         fill: #8C8C8C;
-        background: #222;
+    /*    background: #222;*/
+    }
+    h1{
+    -webkit-margin-after: 0em;
     }
 
       .title {
@@ -85,35 +88,31 @@
   </style>
   </head>
   <body ng-app='visualizerApp'>
-    <div style="border: solid 2px; padding: 5px;">
+    <h1><%= title %><span id = "songLoaded" style="font-size: 14px; font-weight: normal">        Post Malone - White Iverson (Malaa Remix)</span></h1>
+    <!-- <div style="border: solid 2px; padding: 5px;"> -->
+    <div>
       <a ui-sref="home">Home</a>
       <a ui-sref="song">Songs</a>
       <a ui-sref="about">About</a>
-    </div>
-
-    <h1><%= title %></h1>
-    <p id= "songLoaded">Go With It - TOKiMONSTA</p>
-
-    <div>
+      <span> | </span>
       <button id="play" onclick="document.getElementById('audioElement').play()">Play the Audio</button>
       <button id="pause" onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
       <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
       <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
-    </div>
-
-    <div>
+      <span> | </span>
       <button id="bar">Bar</button>
       <button id="circle">Circle</button>
       <button id="radial">Radial</button>
       <button id="hexagon">Hexagon</button>
     </div>
 
-    <audio id="audioElement" src="audio/Go With It - TOKiMONSTA.mp3">Hello</audio>
+    <audio id="audioElement" src="audio/Post Malone - White Iverson (Malaa Remix).mp3"></audio>
 
     <div ui-view=""></div>
 
     <div id="visualizer"></div>
-
+<!--     <div>style="border: solid 2px; padding: 5px;"></div>
+ -->
 
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
