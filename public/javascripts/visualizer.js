@@ -6,7 +6,7 @@ $(document).ready(function () {
   var analyser = audioCtx.createAnalyser();
 
   var toggle;
-  var menu = 4;
+  var menu = 1;
   var svgHeight = '550';
   var svgWidth = '1160';
 
@@ -31,7 +31,10 @@ $(document).ready(function () {
     var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight).attr('width', svgWidth);
 
     // Create color gradient
-    var colorScaleRainbow = d3.scale.category20();
+    var colorScaleRainbow = d3.scale.category20()
+       // .interpolate(d3.interpolateHsl);
+    // .interpolate(d3.interpolateLab);
+    //.interpolate(d3.interpolateHcl)
 
     // var coloursRainbow = ["#2c7bb6", "#00a6ca","#00ccbc","#90eb9d","#ffff8c","#f9d057","#f29e2e","#e76818","#d7191c"];
     // var colourRangeRainbow = d3.range(0, 1, 1.0 / (coloursRainbow.length - 1));
@@ -75,6 +78,12 @@ $(document).ready(function () {
              return 620;
              // return d / 13;
           })
+          // .attr('fill', '#FFF')
+
+          //       function(d, i) {
+          //    // return colorScaleRainbow(colorInterpolateRainbow(frequencyData[i]));
+          //    return colorScaleRainbow(i);
+          // })
           .attr('fill', function(d, i) {
              // return colorScaleRainbow(colorInterpolateRainbow(frequencyData[i]));
              return colorScaleRainbow(i);
@@ -358,31 +367,34 @@ $(document).ready(function () {
   $('#pause').on("click", function(){
     cancelAnimationFrame(toggle);
   });
-
   // Load bar visualizer
   $('#bar').on("click", function(){
     bar();
     menu = 1;
   });
-
   // Load circle visualizer
   $('#circle').on("click", function(){
     circle();
     menu = 2;
   });
-
   // Load radial visualizer
   $('#radial').on("click", function(){
     radial();
     menu = 3;
   });
-
   // Load hexagon visualizer
   $('#hexagon').on("click", function(){
     hexagon();
     menu = 4;
   });
+  // Load hexagon visualizer
+  $('#color').on("click", function(){
+    $('body').css("background", "#FFF");
+  });
 
-
+  // Load hexagon visualizer
+  $('#black').on("click", function(){
+    $('body').css("background", "#222");
+  });
 
 });

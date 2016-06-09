@@ -11,7 +11,10 @@ var users = require('./routes/users');
 var songs = require('./routes/songs');
 
 var app = express();
-mongoose.connect('mongodb://localhost/mean-songs');
+// mongoose.connect('mongodb://localhost/mean-songs');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mean-songs');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
