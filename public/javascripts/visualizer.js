@@ -151,11 +151,12 @@ function circle() {
 
   }
 
-function circle2(){
+function radial() {
   $("#visualizer").children().remove();
 
-    //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-  var frequencyData = new Uint8Array(50);
+  //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+  var frequencyData = new Uint8Array(200);
+
 
 ///////////////////////////////////////////////////////////////////////////
 //////////////////// Set up and initiate svg containers ///////////////////
@@ -171,7 +172,7 @@ var width = window.innerWidth - margin.left - margin.right - 20;
 var height = window.innerHeight - margin.top - margin.bottom - 20;
 
 
-var data = [172, 195, 218, 225, 207, 193, 176, 152, 158, 170, 167, 183, 207, 219, 205, 165, 158, 157, 153, 161, 163, 153, 138, 136, 126, 127, 158, 178, 171, 139, 116, 107, 102, 102, 104, 104, 116, 129, 131, 125, 121, 137, 144, 129, 109, 110, 106, 102, 99, 99];
+// var data = [172, 195, 218, 225, 207, 193, 176, 152, 158, 170, 167, 183, 207, 219, 205, 165, 158, 157, 153, 161, 163, 153, 138, 136, 126, 127, 158, 178, 171, 139, 116, 107, 102, 102, 104, 104, 116, 129, 131, 125, 121, 137, 144, 129, 109, 110, 106, 102, 99, 99];
 
 
 //SVG container
@@ -209,13 +210,13 @@ var colorScale = d3.scale.category20();
 //Scale for the heights of the bar, not starting at zero to give the bars an initial offset outward
 var barScale = d3.scale.linear()
   .range([innerRadius, outerRadius])
-  .domain([-45,255]);
+  .domain([-45,150]);
 
 //Scale to turn the date into an angle of 360 degrees in total
 //With the first datapoint (Jan 1st) on top
 var angle = d3.scale.linear()
   .range([-180, 180])
-  .domain(d3.extent(data, function(d,i) { return i; }));
+  .domain(d3.extent(frequencyData, function(d,i) { return i; }));
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -226,20 +227,20 @@ var angle = d3.scale.linear()
 var barWrapper = svg.append("g")
   .attr("transform", "translate(" + 0 + "," + 0 + ")");
 
-//Draw gridlines below the bars
-var axes = barWrapper.selectAll(".gridCircles")
-  .data([-60,0,60,120,180,240])
-  .enter().append("g");
-//Draw the circles
-axes.append("circle")
-  .attr("class", "axisCircles")
-  .attr("r", function(d) { return barScale(d); });
-//Draw the axis labels
-axes.append("text")
-  .attr("class", "axisText")
-  .attr("y", function(d) { return barScale(d); })
-  .attr("dy", "0.3em")
-  .text(function(d) { return d + "°C"});
+// //Draw gridlines below the bars
+// var axes = barWrapper.selectAll(".gridCircles")
+//   .data([-60,0,60,120,180,240])
+//   .enter().append("g");
+// //Draw the circles
+// axes.append("circle")
+//   .attr("class", "axisCircles")
+//   .attr("r", function(d) { return barScale(d); });
+// //Draw the axis labels
+// axes.append("text")
+//   .attr("class", "axisText")
+//   .attr("y", function(d) { return barScale(d); })
+//   .attr("dy", "0.3em")
+//   .text(function(d) { return d + "°C"});
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -249,11 +250,11 @@ axes.append("text")
 //Draw a bar per day were the height is the difference between the minimum and maximum temperature
 //And the color is based on the mean temperature
 barWrapper.selectAll(".tempBar")
-  .data(data)
+  .data(frequencyData)
   .enter().append("rect")
   .attr("class", "tempBar")
   .attr("transform", function(d,i) { return "rotate(" + (angle(i)) + ")"; })
-  .attr("width", 1.5)
+  .attr("width", 3)
   // .attr("height", function(d) {
   //   return barScale(d);
   // })
@@ -276,13 +277,14 @@ barWrapper.selectAll(".tempBar")
         // .attr("transform", function(d,i) { return "rotate(" + (angle(i)) + ")"; })
         // .attr("width", 1.5)
         .attr("height", function(d) {
-          return barScale(d);
+          return d;
         })
         // .attr("x", 0.75)
-        .attr("y", function(d,i) {return barScale(-60); })
+        .attr("y", function(d,i) {return barScale((Math.floor(Math.random() * -80) + 60)); })
         .style("fill", function(d,i) { return colorScale(i); })
-  }
 
+
+}
  toggle = requestAnimationFrame(renderChart);
 
 }
@@ -394,28 +396,28 @@ function hexagon(){
   ///////////////////////////////////////////////////////////////////////////
 
   var coloursRainbow = ["#2c7bb6", "#00a6ca","#00ccbc","#90eb9d","#ffff8c","#f9d057","#f29e2e","#e76818","#d7191c"];
-  // var colourRangeRainbow = d3.range(0, 1, 1.0 / (coloursRainbow.length - 1));
-  // colourRangeRainbow.push(1);
+  var colourRangeRainbow = d3.range(0, 1, 1.0 / (coloursRainbow.length - 1));
+  colourRangeRainbow.push(1);
 
-  // //Create color gradient
-  // var colorScaleRainbow = d3.scale.linear()
-  //   .domain(colourRangeRainbow)
-  //   .range(coloursRainbow)
-  //   .interpolate(d3.interpolateHcl);
-  //   // .interpolate(d3.interpolateHsl);
-  //   // .interpolate(d3.interpolateLab);
+  //Create color gradient
+  var colorScaleRainbow = d3.scale.linear()
+    .domain(colourRangeRainbow)
+    .range(coloursRainbow)
+    .interpolate(d3.interpolateHcl);
+    // .interpolate(d3.interpolateHsl);
+    // .interpolate(d3.interpolateLab);
 
 
-  var colorScaleRainbow = d3.scale.category20();
+  // var colorScaleRainbow = d3.scale.category20();
 
   //Needed to map the values of the dataset to the color scale
   // var colorInterpolateRainbow = d3.scale.linear()
   //   .domain(d3.extent(data))
   //   .range([0,1]);
 
-  // var colorInterpolateRainbow = d3.scale.linear()
-  //   .domain([0,255])
-  //   .range([0,1]);
+  var colorInterpolateRainbow = d3.scale.linear()
+    .domain([0,255])
+    .range([0,1]);
 
   ///////////////////////////////////////////////////////////////////////////
   //////////////////// Create the Rainbow color gradient ////////////////////
@@ -583,8 +585,8 @@ function hexagon(){
       //Transition the hexagon colors
       svg.selectAll(".hexagon")
       // .transition().duration(1000)
-      // .style("fill", function (d,i) { return colorScaleRainbow(colorInterpolateRainbow(frequencyData[i])); })
-      .style("fill", function (d,i) { return colorScaleRainbow(frequencyData[i]); })
+      .style("fill", function (d,i) { return colorScaleRainbow(colorInterpolateRainbow(frequencyData[i])); })
+      // .style("fill", function (d,i) { return colorScaleRainbow(frequencyData[i]); })
   }
 
 
@@ -603,7 +605,7 @@ function hexagon(){
       circle();
     }
     if(menu == 3) {
-      circle2();
+      radial();
     }
     if(menu == 4) {
       hexagon();
@@ -621,13 +623,13 @@ function hexagon(){
       menu = 1;
   });
 
-  $('#circle2').on("click", function(){
+  $('#circle').on("click", function(){
     circle();
     menu = 2;
   });
 
-  $('#circle').on("click", function(){
-    circle2();
+  $('#radial').on("click", function(){
+    radial();
     menu = 3;
   });
 
