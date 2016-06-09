@@ -36,6 +36,21 @@ $(document).ready(function () {
   //Create color gradient
   var colorScaleRainbow = d3.scale.category20();
 
+  // var coloursRainbow = ["#2c7bb6", "#00a6ca","#00ccbc","#90eb9d","#ffff8c","#f9d057","#f29e2e","#e76818","#d7191c"];
+  // var colourRangeRainbow = d3.range(0, 1, 1.0 / (coloursRainbow.length - 1));
+  // colourRangeRainbow.push(1);
+
+  // //Create color gradient
+  // var colorScaleRainbow = d3.scale.linear()
+  //   .domain(colourRangeRainbow)
+  //   .range(coloursRainbow)
+  //   .interpolate(d3.interpolateHcl);
+
+  // var colorInterpolateRainbow = d3.scale.linear()
+  //   .domain([0,255])
+  //   .range([0,1]);
+
+
   // Create our initial D3 chart.
   svg.selectAll('rect')
      .data(frequencyData)
@@ -64,6 +79,7 @@ $(document).ready(function () {
            return d;
         })
         .attr('fill', function(d, i) {
+           // return colorScaleRainbow(colorInterpolateRainbow(frequencyData[i]));
            return colorScaleRainbow(i);
         })
 

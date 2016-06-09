@@ -100,6 +100,13 @@
       <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
     </div>
 
+    <div>
+      <button id="bar">Bar</button>
+      <button id="circle2">Circle</button>
+      <button id="circle">Circle2</button>
+      <button id="hexagon">Hexagon</button>
+    </div>
+
     <audio id="audioElement" src="audio/Go With It - TOKiMONSTA.mp3">Hello</audio>
 
     <div ui-view=""></div>
@@ -110,14 +117,24 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
+    <!-- <script type="text/javascript" src="javascripts/app2.js"></script> -->
     <script type="text/javascript" src="javascripts/jquery.js" defer></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
-    <script type="text/javascript" src="javascripts/visualizerBar.js" defer></script>
-<!--     <script type="text/javascript" src="javascripts/visualizerCircle2.js" defer></script>
- --><!--     <script type="text/javascript" src="javascripts/visualizerCircle.js" defer></script>
- -->
- <!-- <script type="text/javascript" src="javascripts/visualizerHexagon.js" defer></script> -->
 
+<!-- <script id="script" type="text/javascript" src="javascripts/visualizerBar.js" defer></script> -->
+
+
+<!--     <script type="text/javascript" src="javascripts/visualizerBar.js" defer></script>
+ --><!--
+    <script type="text/javascript" src="javascripts/visualizerCircle.js" defer></script>
+
+ -->
+     <script type="text/javascript" src="javascripts/visualizerRadial.js" defer></script>
+
+<!--   <script type="text/javascript" src="javascripts/visualizerHexagon.js" defer></script>
+ -->
+<!--   <script id="script" type="text/javascript" src="javascripts/visualizer.js" defer></script>
+ -->
 
 
   </body>
