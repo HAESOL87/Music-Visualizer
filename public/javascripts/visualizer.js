@@ -8,7 +8,7 @@ $(document).ready(function () {
   var menu = 1;
   var animationToggle;
   var colorToggle = 1;
-  var svgHeight = '550';
+  var svgHeight = '520';
   var svgWidth = '1160';
 
   // Bind our analyser to the media element source.
@@ -21,9 +21,9 @@ $(document).ready(function () {
 
     $("#visualizer").children().remove();
 
-    var frequencyData = new Uint8Array(50);
+    var frequencyData = new Uint8Array(60);
 
-    var barPadding = '2';
+    var barPadding = '2.5';
 
     // Create svg container
     var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight).attr('width', svgWidth);
@@ -57,6 +57,7 @@ $(document).ready(function () {
           .attr('height', function(d) {
              return 620;
           })
+          // .attr("transform", "translate(" + 8 + "," + 0 + ")");
 
         if(colorToggle == 1){
           svg.selectAll('rect')
@@ -86,20 +87,20 @@ $(document).ready(function () {
       //Create svg container
       var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight).attr('width', svgWidth);
 
-      //Scale radius and hue scale
-      var radiusScale = d3.scale.linear()
-        .domain([60, d3.max(frequencyData + 60)])
-        .range([0, svgHeight]);
-
-      var hueScale = d3.scale.linear()
-        .domain([0, d3.max(frequencyData)])
-        .range([0, 320]);
-
       // Render frequency data into chart
       function renderChart() {
           requestAnimationFrame(renderChart);
 
           analyser.getByteFrequencyData(frequencyData);
+
+          //Scale radius and hue scale
+          var radiusScale = d3.scale.linear()
+            .domain([75, d3.max(frequencyData)])
+            .range([0, svgHeight/1.2]);
+
+          var hueScale = d3.scale.linear()
+            .domain([0, d3.max(frequencyData)])
+            .range([0, 360]);
 
           // Update d3 chart with new data
           var circle = svg.selectAll('circle')
@@ -108,7 +109,15 @@ $(document).ready(function () {
             circle.enter().append('circle');
 
             circle.attr({
-                  r: function(d) { return radiusScale(d) + 100; },
+                  r: function(d) {
+                    if (radiusScale(d) < 0){
+                      var radius = radiusScale(d) * -1;
+                      return radius;
+                    }
+                    else {
+                      return radiusScale(d);
+                    }
+                  },
                   cx: svgWidth / 2,
                   cy: svgHeight / 2
             });
@@ -231,9 +240,9 @@ $(document).ready(function () {
 
     $("#visualizer").children().remove();
 
-    var frequencyData = new Uint8Array(960);
+    var frequencyData = new Uint8Array(760);
 
-    var MapColumns = 35,
+    var MapColumns = 38,
         MapRows = 20;
 
     // The maximum radius the hexagons can have to still fit the screen
@@ -245,7 +254,7 @@ $(document).ready(function () {
       .attr("height", svgHeight)
       .attr("width", svgWidth)
       .append("g")
-      .attr("transform", "translate(" + 65 + "," + 35 + ")");
+      .attr("transform", "translate(" + 70 + "," + 35 + ")");
 
     // Calculate hexagon centers and put it into an array
     var SQRT3 = Math.sqrt(3),

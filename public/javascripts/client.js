@@ -64,8 +64,6 @@ angular.module('visualizerApp')
   };
 
   $scope.changeSong = function(song) {
-    console.log("Hello");
-    console.log(song);
     $('#audioElement').attr("src", "audio/" + song.filename);
     $('#songLoaded').text("  " + song.title + " - " + song.artist);
   };

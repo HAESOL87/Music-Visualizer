@@ -13,30 +13,16 @@
     <base href="/">
 
     <title><%= title %></title>
-
-    <style>
-    body {
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 400;
-        fill: #8C8C8C;
-    /*    background: #222;*/
-    }
-    h1{
-    -webkit-margin-after: 0em;
-    }
-    </style>
-
   </head>
+
   <body ng-app='visualizerApp'>
-    <h1 id = "title"><%= title %><span id = "songLoaded" style="font-size: 14px; font-weight: normal" >     White Iverson (Malaa Remix) - Post Malone</span></h1>
+    <h1 id = "title"><%= title %><span>&nbsp</span><span id = "songLoaded">White Iverson (Malaa Remix) - Post Malone</span></h1>
 
-    <div ng-controller="modalCtrl">
-      <a ui-sref="home">Home</a>
-      <a ng-click="getSongs()">Songs</a>
-      <a ng-click="openAbout()">About</a>
+    <div id="controllerBox" ng-controller="modalCtrl">
+      <a class="controller" ui-sref="home">Home</a>
+      <a class="controller" ng-click="getSongs()">Songs</a>
+      <a class="controller" ng-click="openAbout()">About</a>
       <span class="divide"> | </span>
-
-
       <button id="play" onclick="document.getElementById('audioElement').play()">Play
       </button>
       <button id="pause" onclick="document.getElementById('audioElement').pause()">Pause
