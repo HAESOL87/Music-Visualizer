@@ -86,20 +86,20 @@ $(document).ready(function () {
       //Create svg container
       var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight).attr('width', svgWidth);
 
+      //Scale radius and hue scale
+      var radiusScale = d3.scale.linear()
+        .domain([60, d3.max(frequencyData + 60)])
+        .range([0, svgHeight]);
+
+      var hueScale = d3.scale.linear()
+        .domain([0, d3.max(frequencyData)])
+        .range([0, 320]);
+
       // Render frequency data into chart
       function renderChart() {
           requestAnimationFrame(renderChart);
 
           analyser.getByteFrequencyData(frequencyData);
-
-          //Scale radius and hue scale
-          var radiusScale = d3.scale.linear()
-              .domain([60, d3.max(frequencyData)])
-              .range([0, svgHeight]);
-
-          var hueScale = d3.scale.linear()
-              .domain([0, d3.max(frequencyData)])
-              .range([0, 320]);
 
           // Update d3 chart with new data
           var circle = svg.selectAll('circle')
@@ -108,7 +108,7 @@ $(document).ready(function () {
             circle.enter().append('circle');
 
             circle.attr({
-                  r: function(d) { return radiusScale(d); },
+                  r: function(d) { return radiusScale(d) + 100; },
                   cx: svgWidth / 2,
                   cy: svgHeight / 2
             });
