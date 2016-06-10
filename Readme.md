@@ -7,10 +7,10 @@ Demo: <https://music-visualizer.herokuapp.com/>
 
 ## Features:
 - Choose a song of your favor.
-
+- Select your color theme.
 - Load different visualizers.
 	- Four modes available: Bar, circle, radial, hexagon
-- Select your color theme.
+
 - Blast off your music.
 
 ## Planning:
@@ -24,7 +24,7 @@ Model:
 ![Alt Image Text](Model.png "Screenshot")
 
 
-## Bottle Necks:
+## Technologies & Bottle Necks:
 
 **Web Audio API & D3.js:**
 Understanding how to manipulate the frequency data of the music captured by the Web Audio API and inserting that frequency data back into the D3 chart/template so I could acheive the right visual effect.
