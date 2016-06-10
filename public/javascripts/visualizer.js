@@ -127,7 +127,7 @@ $(document).ready(function () {
                   fill: 'none',
                   'stroke-width': 3,
                   'stroke-opacity': 0.5,
-                  stroke: function(d) { return d3.hsl(hueScale(d), 1, 0.5); }
+                  stroke: function(d) { return d3.hsl("white"); }
               });
             }
 
@@ -381,12 +381,18 @@ $(document).ready(function () {
   // Change theme to color
   $('#color').on("click", function(){
     $('body').css("background", "#FFF");
+    $('#title').css("color", "#222");
+    $('#songLoaded').css("color", "#222");
+    $('.divide').css("color", "#222");
     colorToggle = 1;
   });
 
   // Change theme to black
   $('#black').on("click", function(){
     $('body').css("background", "#222");
+    $('#title').css("color", "#FFF");
+    $('#songLoaded').css("color", "#FFF");
+    $('.divide').css("color", "#FFF");
     colorToggle = 2;
   });
 

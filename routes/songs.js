@@ -8,12 +8,10 @@ function seedSongs(){
     {title : "Run",              artist : "Alison Wonderland", filename : "Run - Alison Wonderland.mp3"},
     {title : "Above The Middle", artist : "Odesza", filename : "Above The Middle - Odesza.mp3"},
     {title : "Go With It",       artist : "TokiMonsta", filename : "Go With It - TOKiMONSTA.mp3"},
-    {title : "Notorious",        artist : "Malaa", filename : "Malaa - Notorious.mp3"},
-    {title : "White Iverson (Malaa Remix)",       artist : "Post Malone", filename : "Post Malone - White Iverson (Malaa Remix).mp3"},
-    {title : "Lean On (Malaa Remix)",       artist : "Major Lazer & DJ Snake", filename : "Major Lazer & DJ Snake (Feat. MØ) - Lean On (Malaa Remix).mp3"},
-    {title : "Drop Girl (Malaa Remix)",       artist : "Ice Cube", filename : "Ice Cube  - Drop Girl (Malaa Remix).mp3"},
-    {title : "Pregnant",         artist : "Malaa", filename : "Malaa - Pregnant.mp3"},
-
+    {title : "Notorious",        artist : "Malaa", filename : "Notorious - Malaa.mp3"},
+    {title : "White Iverson (Malaa Remix)",       artist : "Post Malone", filename : "White Iverson (Malaa Remix) - Post Malone.mp3"},
+    {title : "Lean On (Malaa Remix)",       artist : "Major Lazer & DJ Snake", filename : "Lean On (Malaa Remix) - Major Lazer & DJ Snake (Feat. MØ).mp3"},
+    {title : "Drop Girl (Malaa Remix)",       artist : "Ice Cube", filename : "Drop Girl (Malaa Remix) - Ice Cube.mp3"}
   ];
 
   Song.find({}).remove()

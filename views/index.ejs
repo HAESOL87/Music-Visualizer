@@ -4,11 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-     <!-- Bootstrap -->
-    <link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <base href="/">
+
     <title><%= title %></title>
 
     <style>
@@ -21,89 +24,48 @@
     h1{
     -webkit-margin-after: 0em;
     }
+    </style>
 
-      #glyph {
-        background-color: #FFF
-        margin-top:0;
-        margin:0;
-        margin-bottom: 0;
-        font-size: 20px
-      }
-
-  </style>
   </head>
   <body ng-app='visualizerApp'>
-    <h1><%= title %><span id = "songLoaded" style="font-size: 14px; font-weight: normal">        Post Malone - White Iverson (Malaa Remix)</span></h1>
-    <!-- <div style="border: solid 2px; padding: 5px;"> -->
-    <div>
+    <h1 id = "title"><%= title %><span id = "songLoaded" style="font-size: 14px; font-weight: normal" >     White Iverson (Malaa Remix) - Post Malone</span></h1>
+
+    <div ng-controller="modalCtrl">
       <a ui-sref="home">Home</a>
-      <a ui-sref="song">Songs</a>
-      <a ui-sref="about">About</a>
-      <span> | </span>
+      <a ng-click="getSongs()">Songs</a>
+      <a ng-click="openAbout()">About</a>
+      <span class="divide"> | </span>
 
 
-
-
-<!--       <button id="play" onclick="document.getElementById('audioElement').play()">
-        <span class="glyphicon glyphicon-play" id="glyph"></span>
+      <button id="play" onclick="document.getElementById('audioElement').play()">Play
       </button>
-      <button id="pause" onclick="document.getElementById('audioElement').pause()">
-        <span class="glyphicon glyphicon-pause" id="glyph"></span>
+      <button id="pause" onclick="document.getElementById('audioElement').pause()">Pause
       </button>
-      <button id="volumeUp"onclick="document.getElementById('audioElement').volume+=0.1">
-        <span class="glyphicon glyphicon-volume-up" id="glyph"></span>
+      <button id="volumeUp"onclick="document.getElementById('audioElement').volume+=0.1">Volume+
       </button>
-      <button id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1">
-        <span class="glyphicon glyphicon-volume-down" id="glyph"></span>
-      </button> -->
-
-
-      <a id="glyph"><span class="glyphicon glyphicon-play" id="play" onclick="document.getElementById('audioElement').play()"></span></a>
-      <a id="glyph"><span class="glyphicon glyphicon-pause" id="pause" onclick="document.getElementById('audioElement').pause()"></span></a>
-      <a id="glyph"><span class="glyphicon glyphicon-volume-up" id="volumeUp" onclick="document.getElementById('audioElement').volume+=0.1"></span></a>
-      <a id="glyph"><span class="glyphicon glyphicon-volume-down" id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1"></span></a>
-
-
-
-
-      <span> | </span>
+      <button id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1">Volume-
+      </button>
+      <span class="divide"> | </span>
       <button id="bar">Bar</button>
       <button id="circle">Circle</button>
       <button id="radial">Radial</button>
       <button id="hexagon">Hexagon</button>
-      <span> | </span>
+      <span class="divide"> | </span>
       <button id="color">Color</button>
       <button id="black">B&W</button>
     </div>
 
-    <audio id="audioElement" src="audio/Post Malone - White Iverson (Malaa Remix).mp3"></audio>
+    <audio id="audioElement" src="audio/White Iverson (Malaa Remix) - Post Malone.mp3"></audio>
 
     <div ui-view=""></div>
 
     <div id="visualizer"></div>
 
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="angular/angular.min.js" defer></script>
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js" defer></script>
     <script type="text/javascript" src="javascripts/jquery.js" defer></script>
     <script type="text/javascript" src="javascripts/client.js" defer></script>
-
-<!-- <script id="script" type="text/javascript" src="javascripts/visualizerBar.js" defer></script> -->
-
-
-<!--     <script type="text/javascript" src="javascripts/visualizerBar.js" defer></script>
- --><!--
-    <script type="text/javascript" src="javascripts/visualizerCircle.js" defer></script>
-
- -->
-<!--      <script type="text/javascript" src="javascripts/visualizerRadial.js" defer></script>
- -->
-<!--   <script type="text/javascript" src="javascripts/visualizerHexagon.js" defer></script>
- -->
-  <script id="script" type="text/javascript" src="javascripts/visualizer.js" defer></script>
-
-
-
+    <script id="script" type="text/javascript" src="javascripts/visualizer.js" defer></script>
   </body>
 </html>
 
