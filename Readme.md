@@ -1,7 +1,7 @@
 # Music Visualizer
 
 ##Overview:
-A web based application to visualize your favorite music. Built with MongoDB, ExpressJS, AngularJS, and NodeJS.
+A web based application to visualize your favorite music. Built with MongoDB, ExpressJS, AngularJS, and NodeJS. 
 
 Demo: <https://music-visualizer.herokuapp.com/>
 
@@ -21,7 +21,7 @@ Plan:
 
 Model: 
 
-![Alt Image Text](song.png)
+![Alt Image Text](model.png "Screenshot")
 
 
 ## Bottle Necks:
