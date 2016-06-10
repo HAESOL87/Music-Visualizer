@@ -235,7 +235,7 @@ $(document).ready(function () {
 
   }
 
-
+  // Hexagon visualizer
   function hexagon() {
 
     $("#visualizer").children().remove();
@@ -329,14 +329,12 @@ $(document).ready(function () {
         if(colorToggle == 1){
         //Transition the hexagon colors
         svg.selectAll(".hexagon")
-        // .transition().duration(1000)
         .style("fill", function (d,i) { return colorScaleRainbow(colorInterpolateRainbow(frequencyData[i])); })
         }
 
         if(colorToggle == 2){
         //Transition the hexagon colors
         svg.selectAll(".hexagon")
-        // .transition().duration(1000)
         .style("fill", function (d,i) { return colorScaleGray(colorInterpolateGray(frequencyData[i])); })
         }
     }

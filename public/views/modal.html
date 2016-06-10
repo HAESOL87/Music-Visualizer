@@ -1,17 +1,20 @@
+<div id="modalContainer">
 <div class="modal-header">
     <h3 class="modal-title">Songs</h3>
 </div>
 
 <div class="modal-body">
     <ul>
-        <li ng-repeat="song in songs">
+        <li id="songList" ng-repeat="song in songs">
             <a href="#" ng-click="$event.preventDefault(); selected.song = song">{{ song.title }} - {{ song.artist }}</a>
         </li>
     </ul>
-    Selected: <b>{{ selected.song.title }} - {{ selected.song.artist }}</b>
+    <span id="songSelected">Selected: <b>{{ selected.song.title }} - {{ selected.song.artist }}</b></span>
 </div>
 
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="loadSong()">Load Song</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+
 </div>
