@@ -21,7 +21,7 @@ Plan:
 
 Model: 
 
-![Alt Image Text](model.png "Screenshot")
+![Alt Image Text](Model.png "Screenshot")
 
 
 ## Bottle Necks:
