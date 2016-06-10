@@ -11,7 +11,6 @@ var users = require('./routes/users');
 var songs = require('./routes/songs');
 
 var app = express();
-// mongoose.connect('mongodb://localhost/mean-songs');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mean-songs');
 

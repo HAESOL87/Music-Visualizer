@@ -7,3 +7,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+#glyph {
+  background-color: #FFF;
+  margin-top: 0;
+  margin-bottom: 0;
+
+}

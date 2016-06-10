@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><%= title %></title>
+     <!-- Bootstrap -->
+    <link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-
     <base href="/">
+    <title><%= title %></title>
+
     <style>
     body {
         font-family: 'Open Sans', sans-serif;
@@ -20,69 +22,12 @@
     -webkit-margin-after: 0em;
     }
 
-      .title {
-        font-size: 28px;
-        fill: #4F4F4F;
-        font-weight: 300;
-        text-anchor: start;
-      }
-
-      .subtitle {
-        font-size: 14px;
-        fill: #AAAAAA;
-        font-weight: 300;
-        text-anchor: start;
-      }
-
-      .credit {
-        font-size: 12px;
-        fill: #AAAAAA;
-        font-weight: 300;
-        text-anchor: start;
-      }
-
-      .axis path,
-      .axis tick,
-      .axis line {
-          fill: none;
-          stroke: none;
-      }
-
-      .axis text {
-          font-size: 12px;
-          fill: #AAAAAA;
-          font-weight: 400;
-      }
-
-      .legendTitle {
-          font-size: 14px;
-          fill: #4F4F4F;
-          font-weight: 300;
-      }
-
-      .january {
-        font-size: 14px;
-        text-anchor: start;
-        font-weight: 300;
-        fill: #AAAAAA;
-      }
-
-      .yearLine {
-        stroke: #AAAAAA;
-      }
-
-      .axisText {
-        fill: #C4C4C4;
-        font-size: 11px;
-        font-weight: 300;
-        text-anchor: middle;
-        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-      }
-
-      .axisCircles {
-        fill: none;
-        stroke: #E8E8E8;
-        stroke-width: 1px;
+      #glyph {
+        background-color: #FFF
+        margin-top:0;
+        margin:0;
+        margin-bottom: 0;
+        font-size: 20px
       }
 
   </style>
@@ -95,10 +40,32 @@
       <a ui-sref="song">Songs</a>
       <a ui-sref="about">About</a>
       <span> | </span>
-      <button id="play" onclick="document.getElementById('audioElement').play()">Play the Audio</button>
-      <button id="pause" onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
-      <button id="volumeUp"onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
-      <button id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
+
+
+
+
+<!--       <button id="play" onclick="document.getElementById('audioElement').play()">
+        <span class="glyphicon glyphicon-play" id="glyph"></span>
+      </button>
+      <button id="pause" onclick="document.getElementById('audioElement').pause()">
+        <span class="glyphicon glyphicon-pause" id="glyph"></span>
+      </button>
+      <button id="volumeUp"onclick="document.getElementById('audioElement').volume+=0.1">
+        <span class="glyphicon glyphicon-volume-up" id="glyph"></span>
+      </button>
+      <button id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1">
+        <span class="glyphicon glyphicon-volume-down" id="glyph"></span>
+      </button> -->
+
+
+      <a id="glyph"><span class="glyphicon glyphicon-play" id="play" onclick="document.getElementById('audioElement').play()"></span></a>
+      <a id="glyph"><span class="glyphicon glyphicon-pause" id="pause" onclick="document.getElementById('audioElement').pause()"></span></a>
+      <a id="glyph"><span class="glyphicon glyphicon-volume-up" id="volumeUp" onclick="document.getElementById('audioElement').volume+=0.1"></span></a>
+      <a id="glyph"><span class="glyphicon glyphicon-volume-down" id="volumeDown"onclick="document.getElementById('audioElement').volume-=0.1"></span></a>
+
+
+
+
       <span> | </span>
       <button id="bar">Bar</button>
       <button id="circle">Circle</button>
