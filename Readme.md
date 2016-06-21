@@ -3,7 +3,8 @@
 ##Overview:
 A web based application to visualize your favorite music. Built with MongoDB, ExpressJS, AngularJS, and NodeJS. 
 
-Demo: <https://music-visualizer.herokuapp.com/>
+[Live Demo] (https://music-visualizer.herokuapp.com/)
+
 
 ## Features:
 - Choose a song of your favor.
