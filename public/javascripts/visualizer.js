@@ -8,6 +8,7 @@ $(document).ready(function () {
   var menu = 1;
   var animationToggle;
   var colorToggle = 1;
+  var randomToggle = 1;
   var svgHeight = '520';
   var svgWidth = '1160';
 
@@ -368,21 +369,25 @@ $(document).ready(function () {
   $('#bar').on("click", function(){
     bar();
     menu = 1;
+    // randomToggle= 1;
   });
   // Load circle visualizer
   $('#circle').on("click", function(){
     circle();
     menu = 2;
+    // randomToggle= 1;
   });
   // Load radial visualizer
   $('#radial').on("click", function(){
     radial();
     menu = 3;
+    // randomToggle= 1;
   });
   // Load hexagon visualizer
   $('#hexagon').on("click", function(){
     hexagon();
     menu = 4;
+    // randomToggle= 1;
   });
 
   // Change theme to color
@@ -392,6 +397,7 @@ $(document).ready(function () {
     $('#songLoaded').css("color", "#222");
     $('.divide').css("color", "#222");
     colorToggle = 1;
+    // randomToggle= 1;
   });
 
   // Change theme to black
@@ -401,6 +407,12 @@ $(document).ready(function () {
     $('#songLoaded').css("color", "#FFF");
     $('.divide').css("color", "#FFF");
     colorToggle = 2;
+    // randomToggle= 1;
   });
+
+  // $('#random').on("click", function(){
+
+
+  // });
 
 });

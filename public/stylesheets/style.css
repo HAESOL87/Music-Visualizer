@@ -53,18 +53,16 @@ a {
 }
 
 #about {
-margin: 3px 3px 3px 3px;
+font-size: 17px;
+padding: 20px 0px 20px 20px;
 opacity: 0.8;
 }
 
-#name {
+#myname {
   text-align: right;
+  margin-bottom: 0;
 }
-/*
-.modal-backdrop {
-  opacity: 0.8;
 
-}*/
 .md-modal {
   top: 50%;
   left: 50%;
